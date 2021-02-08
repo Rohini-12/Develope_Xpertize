@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Developee.Developer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <table class="table">
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input name="AreChecked" type="checkbox" value="@item.Dev_Id" /> @item.Dev_Id<br />
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No_Of_Exp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PanCard_no)
+                </td>
+                
+                <td>
+                    <!--  @Html.ActionLink("Edit", "Edit", new { id = item.Dev_Id }) |-->
+                    @Html.ActionLink("Details", "Details", new { id = item.Dev_Id })
+                    <!--|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Dev_Id })-->
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

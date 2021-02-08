@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<head>
+    <link href="~/Contents/Login.css" rel="stylesheet" type="text/css" />
+    <title>Login Page</title>
+    <script>
+
+        function validateForm() {
+            var name = document.myform.username.value;
+            var password = document.myform.password.value;
+
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<form action="~/BAs/Login" method="post" name="myform" onsubmit="return validateForm()">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <section class="login-page">
+            <form>
+                <div class="box">
+                    <div class="form-head">
+                        <h2>Member Login</h2>
+                    </div>
+                    <div class="form-body">
+                        <input type="text" placeholder="Enter UserName" name="username" />
+                        <input type="password" placeholder="Password" name="password" />
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" name="login" value="Login" onclick="">Login</button>
+                    </div>
+
+                   
+
+                </div>
+            </form>
+
+        </section>
+    }
+</form>
+

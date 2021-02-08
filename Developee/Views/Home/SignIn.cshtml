@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+}
+<head>
+
+    <link href="~/Contents/signIn.css" rel="stylesheet" type="text/css" />
+    <title>Developer Xpertize</title>
+</head>
+
+<header>
+    <div class="main">
+        <ul>
+            <li><a href="/Developers/SignIn">Developer Sign In</a></li>
+            <li><a href="/Customers/Login">Customer Sign In</a></li>
+            <li><a href="/BAs/Login">BA Sign In</a></li>
+            <li><a href="/Home/signUp">Home</a></li>
+            <li><a href="/Home/signUp">About Us</a></li>
+            <li><a href="/Home/signUp">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="title">
+        <h1>Developer Xpertize</h1>
+        <h5>INNOVATIVE AND AFFORDABLE....</h5>
+    </div>
+</header>
+
+@Html.ActionLink("signUp", "signUp")
+<br>
+@Html.ActionLink("signIn", "signIn")
+
+
+

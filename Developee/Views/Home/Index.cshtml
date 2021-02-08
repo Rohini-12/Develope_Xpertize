@@ -1,0 +1,27 @@
+﻿<head>
+
+    <link href="~/contents/HomeIndex.css" rel="stylesheet" type="text/css" />
+    <title>Developer Xpertize</title>
+</head>
+@{
+    ViewBag.Title = "Index";
+}
+<!--<h2>Welcome</h2>-->
+<header>
+    <div class="main">
+        <ul>
+            <li><a href="/Home/About">About Us</a></li>
+            <li><a href="/Home/Contact">Contact Us</a></li>
+            <li><a href="/Home/SignUp">Sign Up</a></li>
+            <li><a href="/Home/SignIn">Sign In</a></li>
+
+        </ul>
+    </div>
+    <div class="title">
+        <h1>Developer Xpertize</h1>
+        <h5>INNOVATIVE AND AFFORDABLE....</h5>
+    </div>
+</header>
+@Html.ActionLink("signUp", "signUp")
+<br>
+@Html.ActionLink("signIn", "signIn")

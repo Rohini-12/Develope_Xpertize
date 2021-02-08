@@ -1,0 +1,144 @@
+﻿@model Developee.Developer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Developer</h4>
+    <hr />
+    
+
+         @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_of_exp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pancard_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Dev_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Dev_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Dev_Id })
+            </td>
+        </tr>
+    }
+
+
+        @foreach (var item in Model)
+        {
+            <div>@item.Bar</div>
+        }
+
+        <dt>
+            @Html.CheckBoxFor(model => model.Dev_Id)
+        </dt>
+        <!--
+    <dt>
+
+        @Html.DisplayNameFor(model => model.Username)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Username)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Password)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Password)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Mobile_no)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Mobile_no)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.No_Of_Exp)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.No_Of_Exp)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Company_Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Company_Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PanCard_no)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PanCard_no)
+    </dd>
+        -->
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Dev_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

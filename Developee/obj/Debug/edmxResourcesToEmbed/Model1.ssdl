@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BA">
+    <Key>
+      <PropertyRef Name="BA_Id" />
+    </Key>
+    <Property Name="BA_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cust_Id" Type="int" Nullable="false" />
+    <Property Name="Dev_Id" Type="int" Nullable="false" />
+    <Property Name="Proj_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile no" Type="varchar" MaxLength="10" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="50" />
+    <Property Name="Id_Proof" Type="varchar" MaxLength="50" />
+    <Property Name="Org_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Developer">
+    <Key>
+      <PropertyRef Name="Dev_Id" />
+    </Key>
+    <Property Name="Dev_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Mobile_no" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="No_Of_Exp" Type="int" />
+    <Property Name="Company_Name" Type="varchar" MaxLength="50" />
+    <Property Name="PanCard_no" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Skills" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Budget" Type="money" Nullable="false" />
+    <Property Name="Cust_Id" Type="int" />
+    <Property Name="Dev_Id" Type="int" />
+    <Property Name="BA_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK__BA__Cust_Id__403A8C7D">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="BA" Type="Self.BA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BA">
+        <PropertyRef Name="Cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BA__Dev_Id__412EB0B6">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
+    <End Role="BA" Type="Self.BA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="Dev_Id" />
+      </Principal>
+      <Dependent Role="BA">
+        <PropertyRef Name="Dev_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BA__Proj_Id__4222D4EF">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="BA" Type="Self.BA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BA">
+        <PropertyRef Name="Proj_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__BA_Id__44FF419A">
+    <End Role="BA" Type="Self.BA" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BA">
+        <PropertyRef Name="BA_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="BA_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__Cust_Id__29572725">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__Dev_Id__440B1D61">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="Dev_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Dev_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="BA" EntityType="Self.BA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Developer" EntityType="Self.Developer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BA__Cust_Id__403A8C7D" Association="Self.FK__BA__Cust_Id__403A8C7D">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="BA" EntitySet="BA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BA__Dev_Id__412EB0B6" Association="Self.FK__BA__Dev_Id__412EB0B6">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="BA" EntitySet="BA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BA__Proj_Id__4222D4EF" Association="Self.FK__BA__Proj_Id__4222D4EF">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="BA" EntitySet="BA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__BA_Id__44FF419A" Association="Self.FK__Project__BA_Id__44FF419A">
+      <End Role="BA" EntitySet="BA" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__Cust_Id__29572725" Association="Self.FK__Project__Cust_Id__29572725">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__Dev_Id__440B1D61" Association="Self.FK__Project__Dev_Id__440B1D61">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

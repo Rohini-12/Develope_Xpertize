@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Developee.Developer>
+
+@{
+    ViewBag.Title = "developerList";
+}
+
+<h2>developerList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form method="get">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_Of_Exp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PanCard_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skills)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   <!-- <input type="checkbox" name="did" value=@item.Dev_Id>-->
+                    <a href="/Projects/Success/@item.Dev_Id">Select Developer</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No_Of_Exp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PanCard_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skills)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink("Details", "Details", new { id = item.Dev_Id }) |
+                   
+                </td>
+            </tr>
+        }
+
+    </table>
+</form>

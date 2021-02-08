@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities9">
+    <EntitySetMapping Name="BAs">
+      <EntityTypeMapping TypeName="Database1Model.BA">
+        <MappingFragment StoreEntitySet="BA">
+          <ScalarProperty Name="BA_Id" ColumnName="BA_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Cust_Id" ColumnName="Cust_Id" />
+          <ScalarProperty Name="Dev_Id" ColumnName="Dev_Id" />
+          <ScalarProperty Name="Proj_Id" ColumnName="Proj_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Database1Model.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile no" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="Id_Proof" ColumnName="Id_Proof" />
+          <ScalarProperty Name="Org_Name" ColumnName="Org_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Developers">
+      <EntityTypeMapping TypeName="Database1Model.Developer">
+        <MappingFragment StoreEntitySet="Developer">
+          <ScalarProperty Name="Dev_Id" ColumnName="Dev_Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+          <ScalarProperty Name="No_Of_Exp" ColumnName="No_Of_Exp" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="PanCard_no" ColumnName="PanCard_no" />
+          <ScalarProperty Name="Skills" ColumnName="Skills" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="Database1Model.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="Cust_Id" ColumnName="Cust_Id" />
+          <ScalarProperty Name="Dev_Id" ColumnName="Dev_Id" />
+          <ScalarProperty Name="BA_Id" ColumnName="BA_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
